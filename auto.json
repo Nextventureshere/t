@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "icon": "fas fa-heartbeat",
+      "title": "Herz-Kreislauf-Check",
+      "description": "Eine schnelle Überprüfung des Herz-Kreislauf-Systems.",
+      "phraseIds": [1, 2, 3]  
+    },
+    {
+      "id": 2,
+      "icon": "fas fa-brain",
+      "title": "Neurologische Abfrage",
+      "description": "Überprüfung neurologischer Funktionen.",
+      "phraseIds": [2, 1] 
+    }  
+  ]

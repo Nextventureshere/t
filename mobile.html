@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übersetzungslösung - Mobile</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- GSAP für Animationen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #f0f4f8, #e2e8f0);
+            overscroll-behavior: none;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(229, 231, 235, 0.5);
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #6b7280;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+        .nav-item.active {
+            color: #2563eb;
+        }
+        .nav-item i {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .nav-item.active i {
+            transform: scale(1.15);
+        }
+        .nav-item span {
+            font-size: 0.7rem;
+            margin-top: 0.25rem;
+            font-weight: 600;
+        }
+        .mic-btn {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .mic-btn.listening {
+            animation: micPulse 1.2s infinite ease-in-out;
+        }
+        @keyframes micPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6); }
+        }
+        .language-select {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .language-select.collapsed {
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .bottom-container {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 24rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 7.5rem;
+        }
+        .bottom-container.expanded {
+            gap: 1rem;
+        }
+        .bottom-container.collapsed {
+            gap: 0.5rem;
+        }
+        .translated-field {
+            margin-bottom: 1rem;
+        }
+        .translated-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .icon-container i {
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .icon-container i:hover {
+            color: #2563eb;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+            max-width: 90%;
+        }
+        .popup img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .phrase-list {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        .category, .phrase-card {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            cursor: pointer;
+        }
+        .category:hover, .phrase-card:hover {
+            background: rgba(229, 231, 235, 0.3);
+        }
+        .phrase-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .phrase-card i:first-child {
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+        .phrase-card .play-btn i {
+            font-size: 1rem;
+            color: #60a5fa;
+        }
+        /*.popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 90%;
+            max-width: 20rem;
+        }*/
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 10000; /* Höher als andere Elemente (z. B. Bottom-Nav-Bar) */
+            width: 90%;
+            max-width: 20rem;
+            min-height: 10rem; /* Mindesthöhe, damit es sichtbar ist */
+            display: block; /* Sicherstellen, dass es nicht versteckt ist */
+        }
+        .popup-answer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: #e5e7eb;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .popup-answer:hover {
+            background: #d1d5db;
+        }
+        .popup-answer.selected {
+            background: #2563eb;
+            color: white;
+        }
+        .popup-answer span {
+            font-size: 1rem;
+            color: #1f2937;
+        }
+        .popup-answer .play-btn i {
+            font-size: 1rem;
+            color: #60a5fa;
+        }
+        .category span {
+            font-weight: 700; /* Fett */
+            font-size: 1.125rem; /* Etwas größer */
+            color: #1f2937; /* Dunkleres Grau für Kontrast */
+        }
+        .sub-content .category span {
+            font-weight: 600; /* Etwas weniger fett für Unterkategorien */
+            font-size: 1rem;
+            color: #374151; /* Leicht helleres Grau */
+        }
+        .smart-query-list {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        .query-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .query-card:hover {
+            background: rgba(229, 231, 235, 0.3);
+        }
+        .query-card i {
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+        .query-card .title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #1f2937;
+        }
+        .query-card .description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .popup-answer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: #e5e7eb;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .popup-answer:hover {
+            background: #d1d5db;
+        }
+        .popup-answer.selected {
+            background: #2563eb;
+            color: white;
+        }
+        .popup-answer span {
+            font-size: 1rem;
+            color: #1f2937;
+        }
+        .popup-answer .play-btn i {
+            font-size: 1rem;
+            color: #60a5fa;
+        }
+        .summary-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        .summary-item .question {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .summary-item .answer {
+            color: #16a34a;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div id="app" class="flex-1 flex flex-col min-h-screen p-6 pb-0">
+        <div id="live-translation" class="flex flex-col items-center h-full">
+            <h1 class="text-2xl font-bold text-gray-900 mb-10">Live Übersetzung</h1>
+            <div class="flex-1"></div>
+            <div class="bottom-container expanded w-full max-w-sm" id="bottom-container">
+                <div id="translated-text" class="hidden">
+                    <div class="translated-field" id="source-field">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Patientensprache</label>
+                        <div class="translated-text bg-white p-3 rounded-xl border border-gray-200 shadow-sm" id="source-text"></div>
+                    </div>
+                    <div class="translated-field hidden" id="translated-field">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Deutsch</label>
+                        <div class="translated-text bg-white p-3 rounded-xl border border-gray-200 shadow-sm" id="translated-text-content"></div>
+                        <div class="icon-container flex justify-around mt-2 hidden" id="action-icons">
+                            <i class="fas fa-info-circle text-blue-500 cursor-pointer" id="hint-icon"></i>
+                            <i class="fas fa-image text-blue-500 cursor-pointer" id="image-icon"></i>
+                            <i class="fas fa-smile text-blue-500 cursor-pointer" id="mood-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mic-btn" id="mic-btn" onclick="toggleListening()">
+                    <i class="fas fa-microphone text-white text-2xl"></i>
+                </div>
+                <div class="language-select w-full" id="language-select" onclick="toggleLanguageSelect()">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Patientensprache</label>
+                    <select id="patient-language" class="w-full p-3 bg-transparent border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800">
+                        <option value="de">Deutsch</option>
+                        <option value="en">Englisch</option>
+                        <option value="es">Spanisch</option>
+                        <option value="fr">Französisch</option>
+                        <option value="ru" selected>Russisch</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="translations" class="hidden flex flex-col items-center h-full p-4">
+            <!-- Sprache und Patient/Patientin Auswahl -->
+            <div class="flex justify-between w-full max-w-sm mb-4">
+                <select id="translation-language" class="w-2/3 p-2 bg-transparent border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800">
+                    <option value="de">Deutsch</option>
+                    <option value="en">Englisch</option>
+                    <option value="es">Spanisch</option>
+                    <option value="fr">Französisch</option>
+                    <option value="ru">Russisch</option>
+                </select>
+                <div class="flex gap-2">
+                    <button id="patient-male" class="p-2 bg-white rounded-xl border border-gray-200 shadow-sm"><i class="fas fa-male text-blue-500"></i></button>
+                    <button id="patient-female" class="p-2 bg-white rounded-xl border border-gray-200 shadow-sm"><i class="fas fa-female text-pink-500"></i></button>
+                </div>
+            </div>
+            <!-- Suchfeld -->
+            <div class="w-full max-w-sm mb-4">
+                <input type="text" id="search-phrases" placeholder="Phrasen suchen..." class="w-full p-3 bg-transparent border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800">
+            </div>
+            <!-- Kategorien/Phrasen Liste -->
+            <div class="w-full max-w-sm overflow-y-auto flex-1" id="phrase-list">
+                <!-- Dynamisch befüllt via JS -->
+            </div>
+            <!-- Popup -->
+            <div id="phrase-popup" class="popup hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="popup-phrase-translated" class="text-2xl font-bold text-blue-600"></h3>
+                    <button id="close-popup" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="flex items-center gap-2 mb-4">
+                    <p id="popup-phrase" class="text-sm text-gray-500"></p>
+                    <button class="play-btn"><i class="fas fa-play text-blue-500"></i></button>
+                </div>
+                <div id="popup-answers" class="space-y-2"></div>
+            </div>
+        </div>
+        <div id="smart-query" class="hidden flex flex-col items-center h-full p-4">
+            <!-- Sprache und Patient/Patientin Auswahl -->
+            <div class="flex justify-between w-full max-w-sm mb-4">
+                <select id="smart-query-language" class="w-2/3 p-2 bg-transparent border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800">
+                    <option value="de">Deutsch</option>
+                    <option value="en">Englisch</option>
+                    <option value="es">Spanisch</option>
+                    <option value="fr">Französisch</option>
+                    <option value="ru">Russisch</option>
+                </select>
+                <div class="flex gap-2">
+                    <button id="smart-patient-male" class="p-2 bg-white rounded-xl border border-gray-200 shadow-sm"><i class="fas fa-male text-blue-500"></i></button>
+                    <button id="smart-patient-female" class="p-2 bg-white rounded-xl border border-gray-200 shadow-sm"><i class="fas fa-female text-pink-500"></i></button>
+                </div>
+            </div>
+            <!-- Suchfeld -->
+            <div class="w-full max-w-sm mb-4">
+                <input type="text" id="smart-search" placeholder="Abfragen suchen..." class="w-full p-3 bg-transparent border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800">
+            </div>
+            <!-- Abfragen Liste -->
+            <div class="w-full max-w-sm overflow-y-auto flex-1" id="smart-query-list">
+                <!-- Dynamisch befüllt via JS -->
+            </div>
+            <!-- Popup für Abfrage -->
+            <div id="smart-query-popup" class="popup hidden">
+                <div class="flex justify-end items-center mb-4">
+                    <button id="smart-close-popup" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="smart-query-content" class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2">
+                        <h3 id="smart-query-phrase" class="text-2xl font-bold text-blue-600"></h3>
+                        <button class="play-btn"><i class="fas fa-play text-blue-500"></i></button>
+                    </div>
+                    <div id="smart-query-answers" class="space-y-2"></div>
+                </div>
+                <div id="smart-query-finished" class="hidden flex flex-col items-center gap-4">
+                    <i class="fas fa-check-circle text-4xl text-green-500"></i>
+                    <button id="smart-finish-btn" class="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600">Fertig</button>
+                </div>
+            </div>
+            <!-- Zusammenfassung Popup -->
+            <div id="smart-summary-popup" class="popup hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-blue-600">Zusammenfassung</h3>
+                    <button id="smart-summary-close" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="smart-summary-content" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" id="live-translation-btn" onclick="switchMode('live-translation')">
+            <i class="fas fa-microphone"></i>
+            <span>Live</span>
+        </div>
+        <div class="nav-item" id="translations-btn" onclick="switchMode('translations')">
+            <i class="fas fa-language"></i>
+            <span>Übersetzungen</span>
+        </div>
+        <div class="nav-item" id="smart-query-btn" onclick="switchMode('smart-query')">
+            <i class="fas fa-brain"></i>
+            <span>Abfrage</span>
+        </div>
+    </nav>
+
+    <script>
+        function switchMode(mode) {
+            const modes = ['live-translation', 'translations', 'smart-query'];
+            modes.forEach(m => {
+                const section = document.getElementById(m);
+                const btn = document.getElementById(`${m}-btn`);
+                if (m === mode) {
+                    section.classList.remove('hidden');
+                    btn.classList.add('active');
+                    gsap.to(btn.querySelector('i'), { scale: 1.15, duration: 0.3 });
+                    gsap.to(btn, { color: '#2563eb', duration: 0.3 });
+                } else {
+                    section.classList.add('hidden');
+                    btn.classList.remove('active');
+                    gsap.to(btn.querySelector('i'), { scale: 1, duration: 0.3 });
+                    gsap.to(btn, { color: '#6b7280', duration: 0.3 });
+                }
+            });
+        }
+
+        switchMode('live-translation');
+
+        let isListening = false;
+        const languageSelect = document.getElementById('language-select');
+        const patientLanguage = document.getElementById('patient-language');
+        const bottomContainer = document.getElementById('bottom-container');
+        const translatedText = document.getElementById('translated-text');
+        const sourceField = document.getElementById('source-field');
+        const sourceText = document.getElementById('source-text');
+        const translatedField = document.getElementById('translated-field');
+        const translatedTextContent = document.getElementById('translated-text-content');
+        const actionIcons = document.getElementById('action-icons');
+        let intervalId = null;
+
+        function toggleListening() {
+            const micBtn = document.getElementById('mic-btn');
+            isListening = !isListening;
+
+            if (isListening) {
+                micBtn.classList.add('listening');
+                startRecordingSimulation();
+            } else {
+                micBtn.classList.remove('listening');
+                stopRecordingSimulation();
+            }
+
+            if (!languageSelect.classList.contains('collapsed')) {
+                collapseLanguageSelect();
+            }
+        }
+
+        function startRecordingSimulation() {
+            translatedText.classList.remove('hidden');
+            sourceField.classList.remove('hidden');
+            translatedField.classList.add('hidden');
+            sourceText.textContent = '';
+            translatedTextContent.textContent = '';
+            actionIcons.classList.add('hidden');
+
+            const text = "У меня болит живот. Боль началась вчера. Иногда мне так больно. Сегодня ситуация особенно плохая.";
+            const words = text.split(' ');
+            let index = 0;
+
+            intervalId = setInterval(() => {
+                if (index < words.length && isListening) {
+                    sourceText.textContent += (index > 0 ? ' ' : '') + words[index];
+                    index++;
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, 500); // Wort alle 0.5 Sekunden
+        }
+
+        function stopRecordingSimulation() {
+            clearInterval(intervalId);
+            translatedField.classList.remove('hidden');
+            translatedTextContent.textContent = "Ich habe Schmerzen in meinem Bauch. Die Schmerzen haben gestern angefangen. Ich habe manchmal solche Schmerzen. Heute ist es besonders schlimm.";
+            actionIcons.classList.remove('hidden');
+        }
+
+        function collapseLanguageSelect() {
+            gsap.to(languageSelect, {
+                height: 'auto',
+                paddingBottom: '0.5rem',
+                duration: 0.5,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    patientLanguage.classList.add('hidden');
+                    languageSelect.classList.add('collapsed');
+                }
+            });
+            bottomContainer.classList.remove('expanded');
+            bottomContainer.classList.add('collapsed');
+            gsap.to('#app', { paddingBottom: '5rem', duration: 0.5, ease: 'power2.inOut' });
+        }
+
+        function expandLanguageSelect() {
+            gsap.to(languageSelect, {
+                height: 'auto',
+                paddingBottom: '1rem',
+                duration: 0.5,
+                ease: 'power2.inOut',
+                onStart: () => {
+                    patientLanguage.classList.remove('hidden');
+                    languageSelect.classList.remove('collapsed');
+                }
+            });
+            bottomContainer.classList.remove('collapsed');
+            bottomContainer.classList.add('expanded');
+            gsap.to('#app', { paddingBottom: '6rem', duration: 0.5, ease: 'power2.inOut' });
+        }
+
+        function toggleLanguageSelect() {
+            if (languageSelect.classList.contains('collapsed')) {
+                expandLanguageSelect();
+            }
+        }
+        const hintIcon = document.getElementById('hint-icon');
+        const imageIcon = document.getElementById('image-icon');
+        const moodIcon = document.getElementById('mood-icon');
+
+        function showPopup(content) {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerHTML = content;
+            document.body.appendChild(popup);
+            gsap.fromTo(popup, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
+            popup.style.display = 'block';
+            popup.onclick = () => {
+                gsap.to(popup, { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power2.in', onComplete: () => popup.remove() });
+            };
+        }
+
+        hintIcon.onclick = () => showPopup('Eine Verneinung kann im Russischen einfach, doppelt und sogar mehrfach sein. Über eine doppelte oder mehrfache Verneinung spricht man, wenn zwei oder mehr Negationswörter und/oder -Partikel in einem Satz gebraucht werden.');
+        imageIcon.onclick = () => showPopup('<img src="abdomen.jpeg" alt="Abdomen">');
+        moodIcon.onclick = () => showPopup('Der Patient benutzt viele Superlative');
+
+        // JSON-Dateien laden (Platzhalter - füge hier deine tatsächlichen Dateien ein)
+        //const phrasesDe = fetch('phrases.json').then(response => response.json()).then(data => { phrasesDe = data; loadTranslations(); });
+        //const phrasesEn = fetch('phrases_en.json').then(response => response.json()).then(data => { phrasesEn = data; });
+        //const categories = fetch('categories.json').then(response => response.json()).then(data => { categories = data; });
+        //const translations = { de: phrasesDe, en: phrasesEn /* füge weitere Sprachen hinzu */ };
+
+        let phrasesDe, phrasesEn, categories;
+        let translations = {};
+
+        async function loadData() {
+            try {
+                const phrasesResponse = await fetch('phrases.json');
+                phrasesDe = await phrasesResponse.json();
+                const phrasesEnResponse = await fetch('phrases_en.json');
+                phrasesEn = await phrasesEnResponse.json();
+                const categoriesResponse = await fetch('categories.json');
+                categories = await categoriesResponse.json();
+
+                translations = { de: phrasesDe, en: phrasesEn /* füge weitere Sprachen hinzu */ };
+                loadTranslations();
+            } catch (error) {
+                console.error('Fehler beim Laden der JSON-Daten:', error);
+            }
+        }
+
+        // Initial laden
+        loadData();
+
+
+        let selectedLanguage = 'de';
+        let selectedGender = 'male';
+
+        function loadTranslations() {
+            const phraseList = document.getElementById('phrase-list');
+            phraseList.innerHTML = '';
+            phraseList.classList.add('phrase-list');
+
+            if (!categories || !Array.isArray(categories)) {
+                console.error('Kategorien sind nicht geladen oder kein Array');
+                return;
+            }
+
+            categories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                categoryDiv.innerHTML = `<span>${category.name}</span>`;
+                categoryDiv.onclick = () => toggleCategory(category, categoryDiv);
+                phraseList.appendChild(categoryDiv);
+            });
+        }
+
+        function toggleCategory(category, categoryDiv) {
+            const existingSub = categoryDiv.querySelector('.sub-content');
+            if (existingSub) {
+                existingSub.remove();
+                return;
+            }
+
+            const subContent = document.createElement('div');
+            subContent.className = 'sub-content pl-4';
+            if (category.subcategories) {
+                category.subcategories.forEach(sub => {
+                    const subDiv = document.createElement('div');
+                    subDiv.className = 'category';
+                    subDiv.innerHTML = `<span>${sub.name}</span>`;
+                    subDiv.onclick = (e) => { e.stopPropagation(); toggleSubCategory(sub, subDiv); };
+                    subContent.appendChild(subDiv);
+                });
+            } else {
+                const phraseIds = category.phraseIds || category.phrases || []; // Fallback
+                if (!Array.isArray(phraseIds)) {
+                    console.error('phraseIds ist kein Array:', category);
+                    return;
+                }
+                phraseIds.forEach(id => {
+                    const phrase = translations['de'].find(p => p.id === id);
+                    const translatedPhrase = translations[selectedLanguage].find(p => p.id === id);
+                    if (phrase && translatedPhrase) {
+                        const phraseCard = document.createElement('div');
+                        phraseCard.className = 'phrase-card';
+                        phraseCard.innerHTML = `
+                            <i class="${phrase.icon}"></i>
+                            <div class="flex-1">
+                                <p class="text-gray-900">${phrase.phrase}</p>
+                                <p class="text-sm text-gray-500">${translatedPhrase.phrase}</p>
+                            </div>
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        `;
+                        phraseCard.onclick = (e) => { e.stopPropagation(); showPhrasePopup(phrase, translatedPhrase); };
+                        phraseCard.querySelector('.play-btn').onclick = (e) => { e.stopPropagation(); playPhrase(translatedPhrase.phrase); };
+                        subContent.appendChild(phraseCard);
+                    }
+                });
+            }
+            categoryDiv.appendChild(subContent);
+        }
+
+        function toggleSubCategory(sub, subDiv) {
+            const existingSub = subDiv.querySelector('.sub-content');
+            if (existingSub) {
+                existingSub.remove();
+                return;
+            }
+            const subContent = document.createElement('div');
+            subContent.className = 'sub-content pl-4';
+
+            // Prüfe, ob phraseIds existiert und ein Array ist
+            const phraseIds = sub.phraseIds || sub.phrases || []; // Fallback auf 'phrases', falls deine JSON-Struktur anders ist
+            if (!Array.isArray(phraseIds)) {
+                console.error('phraseIds ist kein Array:', sub);
+                return;
+            }
+
+            phraseIds.forEach(id => {
+                const phrase = translations['de'].find(p => p.id === id);
+                const translatedPhrase = translations[selectedLanguage].find(p => p.id === id);
+                if (phrase && translatedPhrase) { // Sicherstellen, dass beide Phrasen existieren
+                    const phraseCard = document.createElement('div');
+                    phraseCard.className = 'phrase-card';
+                    phraseCard.innerHTML = `
+                        <i class="${phrase.icon}"></i>
+                        <div class="flex-1">
+                            <p class="text-gray-900">${phrase.phrase}</p>
+                            <p class="text-sm text-gray-500">${translatedPhrase.phrase}</p>
+                        </div>
+                        <button class="play-btn"><i class="fas fa-play"></i></button>
+                    `;
+                    phraseCard.onclick = (e) => { e.stopPropagation(); showPhrasePopup(phrase, translatedPhrase); };
+                    phraseCard.querySelector('.play-btn').onclick = (e) => { e.stopPropagation(); playPhrase(translatedPhrase.phrase); };
+                    subContent.appendChild(phraseCard);
+                }
+            });
+            subDiv.appendChild(subContent);
+        }
+
+        function showPhrasePopup(phrase, translatedPhrase) {
+            const popup = document.getElementById('phrase-popup');
+            const popupPhraseTranslated = document.getElementById('popup-phrase-translated');
+            const popupPhrase = document.getElementById('popup-phrase');
+            const answersDiv = document.getElementById('popup-answers');
+            
+            popupPhraseTranslated.textContent = translatedPhrase.phrase;
+            popupPhrase.textContent = phrase.phrase;
+            answersDiv.innerHTML = '';
+
+            // Play-Button für die übersetzte Phrase
+            const phrasePlayBtn = popup.querySelector('.play-btn');
+            phrasePlayBtn.onclick = () => playPhrase(translatedPhrase.phrase);
+
+            // Antworten in der Fremdsprache
+            translatedPhrase.answers.forEach(answer => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'popup-answer';
+                answerDiv.innerHTML = `
+                    <span>${answer}</span>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                `;
+                answerDiv.onclick = () => {
+                    answersDiv.querySelectorAll('.popup-answer').forEach(a => a.classList.remove('selected'));
+                    answerDiv.classList.add('selected');
+                    setTimeout(() => popup.classList.add('hidden'), 300);
+                };
+                answerDiv.querySelector('.play-btn').onclick = (e) => {
+                    e.stopPropagation();
+                    playPhrase(answer);
+                };
+                answersDiv.appendChild(answerDiv);
+            });
+
+            popup.classList.remove('hidden');
+            gsap.fromTo(popup, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
+        }
+
+        document.getElementById('close-popup').onclick = () => {
+            const popup = document.getElementById('phrase-popup');
+            gsap.to(popup, { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power2.in', onComplete: () => popup.classList.add('hidden') });
+        };
+
+        function playPhrase(phrase) {
+            console.log(`Spiele ab: ${phrase}`); // Platzhalter für Audio
+        }
+
+        document.getElementById('translation-language').onchange = (e) => {
+            selectedLanguage = e.target.value;
+            if (translations[selectedLanguage]) {
+                loadTranslations();
+            } else {
+                console.error(`Übersetzungen für ${selectedLanguage} nicht geladen`);
+            }
+        };
+
+        document.getElementById('patient-male').onclick = () => {
+            selectedGender = 'male';
+            document.getElementById('patient-male').classList.add('bg-blue-100');
+            document.getElementById('patient-female').classList.remove('bg-pink-100');
+        };
+
+        document.getElementById('patient-female').onclick = () => {
+            selectedGender = 'female';
+            document.getElementById('patient-female').classList.add('bg-pink-100');
+            document.getElementById('patient-male').classList.remove('bg-blue-100');
+        };
+
+        /*document.getElementById('search-phrases').oninput = (e) => {
+            const search = e.target.value.toLowerCase();
+            const filtered = translations['de'].filter(p => p.phrase.toLowerCase().includes(search));
+            const phraseList = document.getElementById('phrase-list');
+            phraseList.innerHTML = '';
+            filtered.forEach(phrase => {
+                const translatedPhrase = translations[selectedLanguage].find(p => p.id === phrase.id);
+                const phraseCard = document.createElement('div');
+                phraseCard.className = 'phrase-card';
+                phraseCard.innerHTML = `
+                    <i class="${phrase.icon}"></i>
+                    <div class="flex-1">
+                        <p class="text-gray-900">${phrase.phrase}</p>
+                        <p class="text-sm text-gray-500">${translatedPhrase.phrase}</p>
+                    </div>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                `;
+                phraseCard.onclick = () => showPhrasePopup(phrase, translatedPhrase);
+                phraseCard.querySelector('.play-btn').onclick = (e) => { e.stopPropagation(); playPhrase(translatedPhrase.phrase); };
+                phraseList.appendChild(phraseCard);
+            });
+        };*/
+        document.getElementById('search-phrases').oninput = (e) => {
+            const search = e.target.value.toLowerCase();
+            const phraseList = document.getElementById('phrase-list');
+            phraseList.innerHTML = '';
+
+            if (!translations.de || !Array.isArray(translations.de)) {
+                console.error('Deutsche Phrasen sind nicht geladen oder kein Array');
+                return;
+            }
+
+            const filtered = translations.de.filter(p => p.phrase.toLowerCase().includes(search));
+            filtered.forEach(phrase => {
+                const translatedPhrase = translations[selectedLanguage].find(p => p.id === phrase.id) || phrase; // Fallback auf deutsch
+                const phraseCard = document.createElement('div');
+                phraseCard.className = 'phrase-card';
+                phraseCard.innerHTML = `
+                    <i class="${phrase.icon}"></i>
+                    <div class="flex-1">
+                        <p class="text-gray-900">${phrase.phrase}</p>
+                        <p class="text-sm text-gray-500">${translatedPhrase.phrase}</p>
+                    </div>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                `;
+                phraseCard.onclick = (e) => { e.stopPropagation(); showPhrasePopup(phrase, translatedPhrase); };
+                phraseCard.querySelector('.play-btn').onclick = (e) => { e.stopPropagation(); playPhrase(translatedPhrase.phrase); };
+                phraseList.appendChild(phraseCard);
+            });
+        };
+
+        let smartQueries;
+        let selectedSmartLanguage = 'de';
+        let selectedSmartGender = 'male';
+        let currentQuery = null;
+        let currentPhraseIndex = 0;
+        let queryAnswers = [];
+
+        async function loadSmartQueries() {
+            try {
+                const response = await fetch('auto.json');
+                smartQueries = await response.json();
+                renderSmartQueryList();
+            } catch (error) {
+                console.error('Fehler beim Laden von auto.json:', error);
+            }
+        }
+
+        function renderSmartQueryList() {
+            const queryList = document.getElementById('smart-query-list');
+            queryList.innerHTML = '';
+            queryList.classList.add('smart-query-list');
+
+            if (!smartQueries || !Array.isArray(smartQueries)) {
+                console.error('Smart Queries nicht geladen oder kein Array');
+                return;
+            }
+
+            smartQueries.forEach(query => {
+                const queryCard = document.createElement('div');
+                queryCard.className = 'query-card';
+                queryCard.innerHTML = `
+                    <i class="${query.icon}"></i>
+                    <div class="flex-1">
+                        <p class="title">${query.title}</p>
+                        <p class="description">${query.description}</p>
+                    </div>
+                `;
+                queryCard.onclick = () => startSmartQuery(query);
+                queryList.appendChild(queryCard);
+            });
+        }
+
+        function startSmartQuery(query) {
+            currentQuery = query;
+            currentPhraseIndex = 0;
+            queryAnswers = [];
+            showSmartQueryPopup();
+        }
+
+        function showSmartQueryPopup() {
+            const popup = document.getElementById('smart-query-popup');
+            const phraseEl = document.getElementById('smart-query-phrase');
+            const answersDiv = document.getElementById('smart-query-answers');
+            const finishedDiv = document.getElementById('smart-query-finished');
+
+            if (currentPhraseIndex >= currentQuery.phraseIds.length) {
+                finishedDiv.classList.remove('hidden');
+                popup.querySelector('#smart-query-content').classList.add('hidden');
+                gsap.from(finishedDiv, { opacity: 0, scale: 0.8, duration: 0.5, ease: 'power2.out' });
+                return;
+            }
+
+            finishedDiv.classList.add('hidden');
+            popup.querySelector('#smart-query-content').classList.remove('hidden');
+
+            const phraseId = currentQuery.phraseIds[currentPhraseIndex];
+            const phrase = translations['de'].find(p => p.id === phraseId);
+            const translatedPhrase = translations[selectedSmartLanguage].find(p => p.id === phraseId) || phrase;
+
+            phraseEl.textContent = translatedPhrase.phrase; // Englisch (oder ausgewählte Sprache) groß und hervorgehoben
+            answersDiv.innerHTML = '';
+            translatedPhrase.answers.forEach(answer => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'popup-answer';
+                answerDiv.innerHTML = `
+                    <span>${answer}</span>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                `;
+                answerDiv.onclick = () => {
+                    queryAnswers.push({ question: phrase.phrase, answer }); // Deutsche Frage für Zusammenfassung
+                    currentPhraseIndex++;
+                    showSmartQueryPopup();
+                };
+                answerDiv.querySelector('.play-btn').onclick = (e) => {
+                    e.stopPropagation();
+                    playPhrase(answer);
+                };
+                answersDiv.appendChild(answerDiv);
+            });
+
+            popup.querySelector('.play-btn').onclick = () => playPhrase(translatedPhrase.phrase);
+            popup.classList.remove('hidden');
+            gsap.fromTo(popup, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
+        }
+
+        document.getElementById('smart-close-popup').onclick = () => {
+            const popup = document.getElementById('smart-query-popup');
+            gsap.to(popup, { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power2.in', onComplete: () => popup.classList.add('hidden') });
+        };
+
+        document.getElementById('smart-finish-btn').onclick = () => {
+            document.getElementById('smart-query-popup').classList.add('hidden');
+            showSmartSummary();
+        };
+
+        function showSmartSummary() {
+            const summaryPopup = document.getElementById('smart-summary-popup');
+            const summaryContent = document.getElementById('smart-summary-content');
+            summaryContent.innerHTML = '';
+
+            queryAnswers.forEach((item, index) => {
+                const summaryItem = document.createElement('div');
+                summaryItem.className = 'summary-item';
+                // Finde die deutsche Übersetzung der Antwort
+                const phraseId = currentQuery.phraseIds[index];
+                const phrase = translations['de'].find(p => p.id === phraseId);
+                const translatedPhrase = translations[selectedSmartLanguage].find(p => p.id === phraseId) || phrase;
+                const germanAnswer = phrase.answers[translatedPhrase.answers.indexOf(item.answer)] || item.answer; // Deutsche Antwort
+                summaryItem.innerHTML = `
+                    <p class="question">${item.question}</p>
+                    <p class="answer">${germanAnswer}</p>
+                `;
+                summaryContent.appendChild(summaryItem);
+            });
+
+            summaryPopup.classList.remove('hidden');
+            gsap.fromTo(summaryPopup, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
+        }
+
+        document.getElementById('smart-summary-close').onclick = () => {
+            const summaryPopup = document.getElementById('smart-summary-popup');
+            gsap.to(summaryPopup, { opacity: 0, scale: 0.8, duration: 0.3, ease: 'power2.in', onComplete: () => summaryPopup.classList.add('hidden') });
+        };
+
+        document.getElementById('smart-query-language').onchange = (e) => {
+            selectedSmartLanguage = e.target.value;
+            renderSmartQueryList();
+        };
+
+        document.getElementById('smart-patient-male').onclick = () => {
+            selectedSmartGender = 'male';
+            document.getElementById('smart-patient-male').classList.add('bg-blue-100');
+            document.getElementById('smart-patient-female').classList.remove('bg-pink-100');
+        };
+
+        document.getElementById('smart-patient-female').onclick = () => {
+            selectedSmartGender = 'female';
+            document.getElementById('smart-patient-female').classList.add('bg-pink-100');
+            document.getElementById('smart-patient-male').classList.remove('bg-blue-100');
+        };
+
+        document.getElementById('smart-search').oninput = (e) => {
+            const search = e.target.value.toLowerCase();
+            const queryList = document.getElementById('smart-query-list');
+            queryList.innerHTML = '';
+
+            const filtered = smartQueries.filter(q => q.title.toLowerCase().includes(search) || q.description.toLowerCase().includes(search));
+            filtered.forEach(query => {
+                const queryCard = document.createElement('div');
+                queryCard.className = 'query-card';
+                queryCard.innerHTML = `
+                    <i class="${query.icon}"></i>
+                    <div class="flex-1">
+                        <p class="title">${query.title}</p>
+                        <p class="description">${query.description}</p>
+                    </div>
+                `;
+                queryCard.onclick = () => startSmartQuery(query);
+                queryList.appendChild(queryCard);
+            });
+        };
+
+        // Initial laden
+        loadSmartQueries();
+    </script>
+</body>
+</html>

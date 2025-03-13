@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Pain",
+      "icon": "fas fa-head-side-virus",
+      "phrase": "Do you have pain?",
+      "answers": ["Yes", "No"]
+    },
+    {
+      "id": 2,
+      "name": "Allergies",
+      "icon": "fas fa-allergies",
+      "phrase": "Do you have allergies?",
+      "answers": ["Yes", "No"]
+    },
+    {
+      "id": 3,
+      "name": "Medications",
+      "icon": "fas fa-pills",
+      "phrase": "Are you taking medications?",
+      "answers": ["Yes", "No"]
+    }
+  ]

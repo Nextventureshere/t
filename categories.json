@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Allgemeine Fragen",
+      "icon": "fas fa-question-circle",
+      "subcategories": [
+        {
+          "name": "Symptome",
+          "icon": "fas fa-stethoscope",
+          "phrases": [1, 2]
+        },
+        {
+          "name": "Medikamente",
+          "icon": "fas fa-pills",
+          "phrases": [3]
+        }
+      ]
+    },
+    {
+      "name": "Spezielle Fragen",
+      "icon": "fas fa-user-md",
+      "phrases": [1, 3]
+    }
+  ]

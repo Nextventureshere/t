@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Schmerzen",
+      "icon": "fas fa-head-side-virus",
+      "phrase": "Haben Sie Schmerzen?",
+      "answers": ["Ja", "Nein"]
+    },
+    {
+      "id": 2,
+      "name": "Allergien",
+      "icon": "fas fa-allergies",
+      "phrase": "Haben Sie Allergien?",
+      "answers": ["Ja", "Nein"]
+    },
+    {
+      "id": 3,
+      "name": "Medikamente",
+      "icon": "fas fa-pills",
+      "phrase": "Nehmen Sie Medikamente ein?",
+      "answers": ["Ja", "Nein"]
+    }
+  ]

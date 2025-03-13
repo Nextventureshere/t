@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übersetzungslösung für Arzt-Patientengespräch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold mb-8 text-gray-800">Wählen Sie Ihre Plattform</h1>
+        <div class="flex justify-center space-x-6">
+            <div id="desktop-tile" class="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-200 w-40">
+                <img src="desktop_app.svg" alt="Desktop" class="w-16 h-16 mx-auto mb-3">
+                <p class="text-lg font-medium text-gray-700">Desktop</p>
+            </div>
+            <div id="mobile-tile" class="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-200 w-40">
+                <img src="mobile.svg" alt="Mobile" class="w-16 h-16 mx-auto mb-3">
+                <p class="text-lg font-medium text-gray-700">Mobile</p>
+            </div>
+        </div>
+        <div id="code-input" class="mt-8 hidden">
+            <input type="text" id="clinic-code" placeholder="Klinikcode eingeben" class="border border-gray-300 p-2 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="submit-code" class="bg-blue-600 text-white p-2 rounded-lg ml-3 hover:bg-blue-700 transition-colors">Weiter</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('desktop-tile').addEventListener('click', function() {
+            const codeInput = document.getElementById('code-input');
+            codeInput.classList.remove('hidden');
+            codeInput.classList.add('fade-in');
+        });
+
+        document.getElementById('mobile-tile').addEventListener('click', function() {
+            window.location.href = 'mobile.html';
+        });
+
+        document.getElementById('submit-code').addEventListener('click', function() {
+            // Hier könnte später eine Validierung des Codes hinzugefügt werden
+            window.location.href = 'desktop.html';
+        });
+    </script>
+</body>
+</html>
