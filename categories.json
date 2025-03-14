@@ -1,23 +1,191 @@
 [
-    {
-      "name": "Allgemeine Fragen",
-      "icon": "fas fa-question-circle",
-      "subcategories": [
-        {
-          "name": "Symptome",
-          "icon": "fas fa-stethoscope",
-          "phrases": [1, 2]
-        },
-        {
-          "name": "Medikamente",
-          "icon": "fas fa-pills",
-          "phrases": [3]
-        }
-      ]
-    },
-    {
-      "name": "Spezielle Fragen",
-      "icon": "fas fa-user-md",
-      "phrases": [1, 3]
-    }
-  ]
+  {
+    "name": "Schmerzsymptome",
+    "icon": "fas fa-head-side-virus",
+    "subcategories": [
+      {
+        "name": "Kopf und Hals",
+        "icon": "fas fa-head-side-cough",
+        "phrases": [12, 15, 37]
+      },
+      {
+        "name": "Brust und Herz",
+        "icon": "fas fa-heart",
+        "phrases": [11, 34, 51, 52, 54]
+      },
+      {
+        "name": "Bauch und Verdauung",
+        "icon": "fas fa-stomach",
+        "phrases": [18, 33, 36]
+      },
+      {
+        "name": "Gliedmaßen und Rücken",
+        "icon": "fas fa-hand-holding-medical",
+        "phrases": [29, 41, 42]
+      }
+    ]
+  },
+  {
+    "name": "Atemwegssymptome",
+    "icon": "fas fa-lungs",
+    "subcategories": [
+      {
+        "name": "Atemnot",
+        "icon": "fas fa-lungs-virus",
+        "phrases": [7, 53]
+      },
+      {
+        "name": "Husten und Auswurf",
+        "icon": "fas fa-lungs-virus",
+        "phrases": [10, 9]
+      }
+    ]
+  },
+  {
+    "name": "Neurologische Symptome",
+    "icon": "fas fa-brain",
+    "subcategories": [
+      {
+        "name": "Schlaganfall",
+        "icon": "fas fa-brain",
+        "phrases": [45, 46, 47, 48, 49, 50]
+      },
+      {
+        "name": "Anfälle und Bewusstlosigkeit",
+        "icon": "fas fa-user-injured",
+        "phrases": [6, 14, 16, 17]
+      },
+      {
+        "name": "Schwindel und Gleichgewicht",
+        "icon": "fas fa-dizzy",
+        "phrases": [31, 45]
+      }
+    ]
+  },
+  {
+    "name": "Infektionen und Fieber",
+    "icon": "fas fa-thermometer-half",
+    "subcategories": [
+      {
+        "name": "Allgemeine Infektionen",
+        "icon": "fas fa-virus",
+        "phrases": [8, 44]
+      },
+      {
+        "name": "Fieber",
+        "icon": "fas fa-thermometer-half",
+        "phrases": [8]
+      }
+    ]
+  },
+  {
+    "name": "Trauma und Verletzungen",
+    "icon": "fas fa-user-injured",
+    "subcategories": [
+      {
+        "name": "Kopf und Hals",
+        "icon": "fas fa-head-side-bandage",
+        "phrases": [37, 40]
+      },
+      {
+        "name": "Gliedmaßen und Rumpf",
+        "icon": "fas fa-body",
+        "phrases": [41, 42, 43]
+      },
+      {
+        "name": "Polytrauma und Stromschlag",
+        "icon": "fas fa-bolt",
+        "phrases": [38, 39]
+      }
+    ]
+  },
+  {
+    "name": "Chronische Erkrankungen",
+    "icon": "fas fa-heartbeat",
+    "subcategories": [
+      {
+        "name": "Herz-Kreislauf",
+        "icon": "fas fa-heart",
+        "phrases": [19, 35]
+      },
+      {
+        "name": "Lunge und Atemwege",
+        "icon": "fas fa-lungs",
+        "phrases": [7]
+      },
+      {
+        "name": "Nieren und Harnwege",
+        "icon": "fas fa-kidney",
+        "phrases": [24, 26]
+      },
+      {
+        "name": "Rheumatologie",
+        "icon": "fas fa-bone",
+        "phrases": [25]
+      }
+    ]
+  },
+  {
+    "name": "Lebensstil und Gewohnheiten",
+    "icon": "fas fa-heartbeat",
+    "subcategories": [
+      {
+        "name": "Rauchen und Alkohol",
+        "icon": "fas fa-smoking",
+        "phrases": [59, 60]
+      },
+      {
+        "name": "Drogenkonsum",
+        "icon": "fas fa-syringe",
+        "phrases": [61]
+      },
+      {
+        "name": "Ernährung und Aktivität",
+        "icon": "fas fa-utensils",
+        "phrases": [62, 63]
+      },
+      {
+        "name": "Stress und Schlaf",
+        "icon": "fas fa-bed",
+        "phrases": [64, 65]
+      }
+    ]
+  },
+  {
+    "name": "Psychische Gesundheit",
+    "icon": "fas fa-brain",
+    "subcategories": [
+      {
+        "name": "Depression und Angst",
+        "icon": "fas fa-sad-tear",
+        "phrases": [66]
+      },
+      {
+        "name": "Psychische Erkrankungen",
+        "icon": "fas fa-brain",
+        "phrases": [27]
+      }
+    ]
+  },
+  {
+    "name": "Anamnese",
+    "icon": "fas fa-file-medical",
+    "subcategories": [
+      {
+        "name": "Familienanamnese",
+        "icon": "fas fa-users",
+        "phrases": [67]
+      },
+      {
+        "name": "Medizinische Vorgeschichte",
+        "icon": "fas fa-file-medical",
+        "phrases": [68]
+      },
+      {
+        "name": "Lebensverändernde Ereignisse",
+        "icon": "fas fa-exchange-alt",
+        "phrases": [72]
+      }
+    ]
+  }
+]

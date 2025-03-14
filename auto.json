@@ -1,16 +1,58 @@
 [
-    {
-      "id": 1,
-      "icon": "fas fa-heartbeat",
-      "title": "Herz-Kreislauf-Check",
-      "description": "Eine schnelle Überprüfung des Herz-Kreislauf-Systems.",
-      "phraseIds": [1, 2, 3]  
-    },
-    {
-      "id": 2,
-      "icon": "fas fa-brain",
-      "title": "Neurologische Abfrage",
-      "description": "Überprüfung neurologischer Funktionen.",
-      "phraseIds": [2, 1] 
-    }  
-  ]
+  {
+    "id": 3,
+    "icon": "fas fa-lungs",
+    "title": "Atemwegs-Check",
+    "description": "Überprüfung der Atemwegsfunktionen und Symptome.",
+    "phraseIds": [7, 10, 53]
+  },
+  {
+    "id": 4,
+    "icon": "fas fa-file-medical",
+    "title": "Verdauungs-Check",
+    "description": "Überprüfung der Verdauungsfunktionen und Symptome.",
+    "phraseIds": [18, 33, 36]
+  },
+  {
+    "id": 5,
+    "icon": "fas fa-brain",
+    "title": "Schlaganfall-Check",
+    "description": "Überprüfung der Symptome eines Schlaganfalls.",
+    "phraseIds": [45, 46, 47, 48, 49, 50]
+  },
+  {
+    "id": 6,
+    "icon": "fas fa-heart",
+    "title": "Herzinfarkt-Check",
+    "description": "Überprüfung der Symptome eines Herzinfarkts.",
+    "phraseIds": [51, 52, 53, 54, 55, 56, 57, 58]
+  },
+  {
+    "id": 7,
+    "icon": "fas fa-user-injured",
+    "title": "Trauma-Check",
+    "description": "Überprüfung von Verletzungen und Traumata.",
+    "phraseIds": [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    "id": 8,
+    "icon": "fas fa-virus",
+    "title": "Infektions-Check",
+    "description": "Überprüfung von Infektionen und Fieber.",
+    "phraseIds": [8, 44]
+  },
+  {
+    "id": 9,
+    "icon": "fas fa-sad-tear",
+    "title": "Psychische Gesundheit",
+    "description": "Überprüfung der psychischen Gesundheit und Symptome.",
+    "phraseIds": [27, 66]
+  },
+  {
+    "id": 10,
+    "icon": "fas fa-file-medical",
+    "title": "Anamnese-Check",
+    "description": "Überprüfung der medizinischen Vorgeschichte und Familienanamnese.",
+    "phraseIds": [67, 68, 72]
+  }
+]

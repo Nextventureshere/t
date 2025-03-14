@@ -1,23 +1,492 @@
 [
-    {
-      "id": 1,
-      "name": "Pain",
-      "icon": "fas fa-head-side-virus",
-      "phrase": "Do you have pain?",
-      "answers": ["Yes", "No"]
-    },
-    {
-      "id": 2,
-      "name": "Allergies",
-      "icon": "fas fa-allergies",
-      "phrase": "Do you have allergies?",
-      "answers": ["Yes", "No"]
-    },
-    {
-      "id": 3,
-      "name": "Medications",
-      "icon": "fas fa-pills",
-      "phrase": "Are you taking medications?",
-      "answers": ["Yes", "No"]
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Pain",
+    "icon": "fas fa-head-side-virus",
+    "phrase": "Do you have pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 2,
+    "name": "Allergies",
+    "icon": "fas fa-allergies",
+    "phrase": "Do you have allergies?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 3,
+    "name": "Medications",
+    "icon": "fas fa-pills",
+    "phrase": "Are you taking medications?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 4,
+    "name": "Allergic Reaction",
+    "icon": "fas fa-exclamation-triangle",
+    "phrase": "Do you have an allergic reaction?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 5,
+    "name": "Deterioration of General Condition",
+    "icon": "fas fa-tired",
+    "phrase": "Has your general condition deteriorated?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 6,
+    "name": "Unconsciousness Unclear",
+    "icon": "fas fa-user-injured",
+    "phrase": "Have you become unconscious for unclear reasons?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 7,
+    "name": "Dyspnea",
+    "icon": "fas fa-lungs",
+    "phrase": "Do you have shortness of breath?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 8,
+    "name": "Fever Unclear",
+    "icon": "fas fa-thermometer-half",
+    "phrase": "Do you have an unclear fever?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 9,
+    "name": "Hematemesis",
+    "icon": "fas fa-vial",
+    "phrase": "Have you vomited blood?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 10,
+    "name": "Hemoptysis",
+    "icon": "fas fa-lungs-virus",
+    "phrase": "Have you coughed up blood?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 11,
+    "name": "Palpitations",
+    "icon": "fas fa-heartbeat",
+    "phrase": "Do you have palpitations?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 12,
+    "name": "Neck Pain",
+    "icon": "fas fa-neck",
+    "phrase": "Do you have neck pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 13,
+    "name": "Intoxication",
+    "icon": "fas fa-skull-crossbones",
+    "phrase": "Do you have intoxication?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 14,
+    "name": "Collapse/Syncope",
+    "icon": "fas fa-user-fall",
+    "phrase": "Have you collapsed or fainted?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 15,
+    "name": "Headache",
+    "icon": "fas fa-head-side-cough",
+    "phrase": "Do you have a headache?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 16,
+    "name": "Seizure",
+    "icon": "fas fa-brain",
+    "phrase": "Have you had a seizure?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 17,
+    "name": "Neurological Deficit",
+    "icon": "fas fa-brain",
+    "phrase": "Have you noticed a neurological deficit?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 18,
+    "name": "Abdominal Pain",
+    "icon": "fas fa-stomach",
+    "phrase": "Do you have abdominal pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 19,
+    "name": "Angiological Problem",
+    "icon": "fas fa-heart",
+    "phrase": "Do you have an angiological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 20,
+    "name": "Dermatological Problem",
+    "icon": "fas fa-skin",
+    "phrase": "Do you have a dermatological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 21,
+    "name": "Gynecological Problem",
+    "icon": "fas fa-female",
+    "phrase": "Do you have a gynecological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 22,
+    "name": "ENT Problem",
+    "icon": "fas fa-ear",
+    "phrase": "Do you have an ENT problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 23,
+    "name": "Hematological Problem",
+    "icon": "fas fa-blood",
+    "phrase": "Do you have a hematological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 24,
+    "name": "Nephrological Problem",
+    "icon": "fas fa-kidney",
+    "phrase": "Do you have a nephrological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 25,
+    "name": "Rheumatological Problem",
+    "icon": "fas fa-bone",
+    "phrase": "Do you have a rheumatological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 26,
+    "name": "Urological Problem",
+    "icon": "fas fa-bladder",
+    "phrase": "Do you have a urological problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 27,
+    "name": "Psychiatric Disease",
+    "icon": "fas fa-brain",
+    "phrase": "Do you have a psychiatric disease?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 28,
+    "name": "Rectal Problem",
+    "icon": "fas fa-toilet",
+    "phrase": "Do you have a rectal problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 29,
+    "name": "Back Pain",
+    "icon": "fas fa-back",
+    "phrase": "Do you have back pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 30,
+    "name": "Shock Room Non-Trauma",
+    "icon": "fas fa-hospital",
+    "phrase": "Are you in the shock room (non-trauma)?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 31,
+    "name": "Vertigo",
+    "icon": "fas fa-dizzy",
+    "phrase": "Do you have vertigo?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 32,
+    "name": "Other",
+    "icon": "fas fa-question",
+    "phrase": "Do you have another problem?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 33,
+    "name": "Melena",
+    "icon": "fas fa-toilet-paper",
+    "phrase": "Do you have melena?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 34,
+    "name": "Chest Pain",
+    "icon": "fas fa-heart",
+    "phrase": "Do you have chest pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 35,
+    "name": "Thrombosis/Embolism",
+    "icon": "fas fa-blood-clot",
+    "phrase": "Do you have thrombosis or embolism?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 36,
+    "name": "Nausea/Vomiting/Diarrhea",
+    "icon": "fas fa-stomach",
+    "phrase": "Do you have nausea, vomiting, or diarrhea?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 37,
+    "name": "Head Injury",
+    "icon": "fas fa-head-side-bandage",
+    "phrase": "Do you have a head injury?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 38,
+    "name": "Polytrauma",
+    "icon": "fas fa-user-injured",
+    "phrase": "Do you have polytrauma?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 39,
+    "name": "Electric Shock",
+    "icon": "fas fa-bolt",
+    "phrase": "Have you suffered an electric shock?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 40,
+    "name": "Fall",
+    "icon": "fas fa-fall",
+    "phrase": "Have you fallen?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 41,
+    "name": "Trauma/Limb Pain",
+    "icon": "fas fa-hand-holding-medical",
+    "phrase": "Do you have trauma or limb pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 42,
+    "name": "Trauma/Trunk Pain",
+    "icon": "fas fa-body",
+    "phrase": "Do you have trauma or trunk pain?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 43,
+    "name": "Burn/Scald",
+    "icon": "fas fa-fire",
+    "phrase": "Do you have a burn or scald?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 44,
+    "name": "Wounds/Abscesses/Local Infection",
+    "icon": "fas fa-band-aid",
+    "phrase": "Do you have wounds, abscesses, or a local infection?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 45,
+    "name": "Balance Disorder",
+    "icon": "fas fa-balance-scale",
+    "phrase": "Have you noticed a balance disorder?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 46,
+    "name": "Visual Disturbance",
+    "icon": "fas fa-eye",
+    "phrase": "Have you noticed a visual disturbance or vision loss?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 47,
+    "name": "Facial Paralysis",
+    "icon": "fas fa-smile",
+    "phrase": "Have you noticed facial paralysis?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 48,
+    "name": "Arm Paralysis",
+    "icon": "fas fa-hand-paper",
+    "phrase": "Have you noticed arm paralysis?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 49,
+    "name": "Speech Disorder",
+    "icon": "fas fa-comment",
+    "phrase": "Do you have difficulty speaking or understanding speech?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 50,
+    "name": "Time",
+    "icon": "fas fa-clock",
+    "phrase": "How long have the symptoms been present?",
+    "answers": ["Less than an hour", "More than an hour"]
+  },
+  {
+    "id": 51,
+    "name": "Chest Pain",
+    "icon": "fas fa-heart",
+    "phrase": "Do you have severe, sharp, or burning pain in your chest?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 52,
+    "name": "Pressure Feeling",
+    "icon": "fas fa-weight",
+    "phrase": "Do you have a very strong pressure or tightness in your chest?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 53,
+    "name": "Shortness of Breath",
+    "icon": "fas fa-lungs",
+    "phrase": "Do you have shortness of breath or difficulty breathing?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 54,
+    "name": "Radiating Pain",
+    "icon": "fas fa-arrow-alt-circle-right",
+    "phrase": "Do the pain radiate to your arms, shoulders, back, upper abdomen, neck, jaw, or throat?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 55,
+    "name": "Cold Sweat",
+    "icon": "fas fa-temperature-low",
+    "phrase": "Do you have cold sweat or pale skin?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 56,
+    "name": "Nausea",
+    "icon": "fas fa-stomach",
+    "phrase": "Do you have nausea or vomiting?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 57,
+    "name": "Dizziness",
+    "icon": "fas fa-dizzy",
+    "phrase": "Do you have dizziness or weakness?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 58,
+    "name": "Feeling of Anxiety",
+    "icon": "fas fa-exclamation-triangle",
+    "phrase": "Do you have a strong feeling of anxiety or fear of death?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 59,
+    "name": "Smoking",
+    "icon": "fas fa-smoking",
+    "phrase": "Do you smoke?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 60,
+    "name": "Alcohol Consumption",
+    "icon": "fas fa-wine-glass",
+    "phrase": "Do you drink alcohol?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 61,
+    "name": "Drug Use",
+    "icon": "fas fa-syringe",
+    "phrase": "Do you use drugs?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 62,
+    "name": "Physical Activity",
+    "icon": "fas fa-running",
+    "phrase": "Are you regularly physically active?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 63,
+    "name": "Dietary Habits",
+    "icon": "fas fa-utensils",
+    "phrase": "Do you have healthy dietary habits?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 64,
+    "name": "Stress",
+    "icon": "fas fa-stress",
+    "phrase": "Do you frequently experience stress?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 65,
+    "name": "Sleep Quality",
+    "icon": "fas fa-bed",
+    "phrase": "Do you have good sleep quality?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 66,
+    "name": "Depression or Anxiety",
+    "icon": "fas fa-sad-tear",
+    "phrase": "Do you suffer from depression or anxiety?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 67,
+    "name": "Family History",
+    "icon": "fas fa-users",
+    "phrase": "Are there known health problems in your family?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 68,
+    "name": "Medical History",
+    "icon": "fas fa-file-medical",
+    "phrase": "Do you have a significant medical history?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 69,
+    "name": "Allergies",
+    "icon": "fas fa-allergies",
+    "phrase": "Do you have allergies?",
+    "answers": ["Yes", "No"]
+  },
+  {
+    "id": 70,
+    "name": "Medications",
+    "icon": "fas fa-pills",
+    "phrase": "Do you regularly take medications?",
+    "answers": ["Yes", "No"]
+  }
+]
