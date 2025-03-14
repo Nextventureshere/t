@@ -313,6 +313,28 @@
         .summary-item .answer {
             color: #16a34a;
         }
+
+        #smart-summary-content {
+            max-height: 50vh; /* Maximale Höhe auf 50% der Bildschirmhöhe beschränken */
+            overflow-y: auto; /* Vertikaler Scrollbalken bei Bedarf */
+            padding-right: 0.5rem; /* Platz für den Scrollbalken */
+        }
+
+        /* Optional: Schönen Scrollbalken-Stil */
+        #smart-summary-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        #smart-summary-content::-webkit-scrollbar-track {
+            background: rgba(229, 231, 235, 0.5);
+            border-radius: 4px;
+        }
+        #smart-summary-content::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 4px;
+        }
+        #smart-summary-content::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">

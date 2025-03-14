@@ -1,506 +1,492 @@
 [
-    {
-      "id": 1,
-      "name": "Schmerzen",
-      "icon": "fas fa-head-side-virus",
-      "phrase": "Haben Sie Schmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 2,
-      "name": "Allergien",
-      "icon": "fas fa-allergies",
-      "phrase": "Haben Sie Allergien?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 3,
-      "name": "Medikamente",
-      "icon": "fas fa-pills",
-      "phrase": "Nehmen Sie Medikamente ein?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 4,
-      "name": "Allergische Reaktion",
-      "icon": "fas fa-exclamation-triangle",
-      "phrase": "Haben Sie allergisch auf etwas reagiert ?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 5,
-      "name": "Allgemeinzustand Verschlechterung",
-      "icon": "fas fa-tired",
-      "phrase": "Hat sich Ihr Allgemeinzustand verschlechtert?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 6,
-      "name": "Bewusstlosigkeit unklar",
-      "icon": "fas fa-user-injured",
-      "phrase": "Sind Sie unklar bewusstlos geworden?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 7,
-      "name": "Atemnot",
-      "icon": "fas fa-lungs",
-      "phrase": "Haben Sie Atemnot?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 8,
-      "name": "Fieber unklar",
-      "icon": "fas fa-thermometer-half",
-      "phrase": "Haben Sie Fieber?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 9,
-      "name": "Bluterbrechen",
-      "icon": "fas fa-vial",
-      "phrase": "Haben Sie Blut erbrochen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 10,
-      "name": "Bluthusten",
-      "icon": "fas fa-lungs-virus",
-      "phrase": "Haben Sie Blut gehustet?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 11,
-      "name": "Herzklopfen",
-      "icon": "fas fa-heartbeat",
-      "phrase": "Haben Sie Herzklopfen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 12,
-      "name": "Nackenschmerzen",
-      "icon": "fas fa-neck",
-      "phrase": "Haben Sie Nackenschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 13,
-      "name": "Vergiftung",
-      "icon": "fas fa-skull-crossbones",
-      "phrase": "Haben Sie bewusst oder unbewusst etwas schädliches zu sich genommen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 14,
-      "name": "Zusammenbruch/Ohnmacht",
-      "icon": "fas fa-user-fall",
-      "phrase": "Sind Sie zusammengebrochen oder ohnmächtig geworden?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 15,
-      "name": "Kopfschmerzen",
-      "icon": "fas fa-head-side-cough",
-      "phrase": "Haben Sie Kopfschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 16,
-      "name": "Anfall",
-      "icon": "fas fa-brain",
-      "phrase": "Hatten Sie einen Anfall?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 17,
-      "name": "Neurologisches Defizit",
-      "icon": "fas fa-brain",
-      "phrase": "Haben Sie ein neurologisches Defizit bemerkt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 18,
-      "name": "Bauchschmerzen",
-      "icon": "fas fa-stomach",
-      "phrase": "Haben Sie Bauchschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 19,
-      "name": "Angiologisches Problem",
-      "icon": "fas fa-heart",
-      "phrase": "Haben Sie ein angiologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 20,
-      "name": "Dermatologisches Problem",
-      "icon": "fas fa-skin",
-      "phrase": "Haben Sie ein dermatologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 21,
-      "name": "Gynäkologisches Problem",
-      "icon": "fas fa-female",
-      "phrase": "Haben Sie ein gynäkologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 22,
-      "name": "HNO-Problem",
-      "icon": "fas fa-ear",
-      "phrase": "Haben Sie ein HNO-Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 23,
-      "name": "Hämatologisches Problem",
-      "icon": "fas fa-blood",
-      "phrase": "Haben Sie ein hämatologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 24,
-      "name": "Nephrologisches Problem",
-      "icon": "fas fa-kidney",
-      "phrase": "Haben Sie ein nephrologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 25,
-      "name": "Rheumatologisches Problem",
-      "icon": "fas fa-bone",
-      "phrase": "Haben Sie ein rheumatologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 26,
-      "name": "Urologisches Problem",
-      "icon": "fas fa-bladder",
-      "phrase": "Haben Sie ein urologisches Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 27,
-      "name": "Psychische Erkrankung",
-      "icon": "fas fa-brain",
-      "phrase": "Haben Sie eine psychische Erkrankung?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 28,
-      "name": "Rektales Problem",
-      "icon": "fas fa-toilet",
-      "phrase": "Haben Sie ein rektales Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 29,
-      "name": "Rückenschmerzen",
-      "icon": "fas fa-back",
-      "phrase": "Haben Sie Rückenschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 30,
-      "name": "Schockraum nicht-trauma",
-      "icon": "fas fa-hospital",
-      "phrase": "Sind Sie im Schockraum (nicht-trauma)?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 31,
-      "name": "Schwindel",
-      "icon": "fas fa-dizzy",
-      "phrase": "Haben Sie Schwindel?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 32,
-      "name": "Andere",
-      "icon": "fas fa-question",
-      "phrase": "Haben Sie ein anderes Problem?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 33,
-      "name": "Teerstuhl",
-      "icon": "fas fa-toilet-paper",
-      "phrase": "Haben Sie Teerstuhl?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 34,
-      "name": "Brustschmerzen",
-      "icon": "fas fa-heart",
-      "phrase": "Haben Sie Brustschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 35,
-      "name": "Thrombose/Embolie",
-      "icon": "fas fa-blood-clot",
-      "phrase": "Haben Sie eine Thrombose oder Embolie?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 36,
-      "name": "Übelkeit/Erbrechen/Durchfall",
-      "icon": "fas fa-stomach",
-      "phrase": "Haben Sie Übelkeit, Erbrechen oder Durchfall?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 37,
-      "name": "Kopfverletzung",
-      "icon": "fas fa-head-side-bandage",
-      "phrase": "Haben Sie eine Kopfverletzung?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 38,
-      "name": "Polytrauma",
-      "icon": "fas fa-user-injured",
-      "phrase": "Haben Sie ein Polytrauma?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 39,
-      "name": "Stromschlag",
-      "icon": "fas fa-bolt",
-      "phrase": "Haben Sie einen Stromschlag erlitten?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 40,
-      "name": "Sturz",
-      "icon": "fas fa-fall",
-      "phrase": "Sind Sie gestürzt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 41,
-      "name": "Trauma/Gliederschmerzen",
-      "icon": "fas fa-hand-holding-medical",
-      "phrase": "Haben Sie ein Trauma oder Gliederschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 42,
-      "name": "Trauma/Rumpfschmerzen",
-      "icon": "fas fa-body",
-      "phrase": "Haben Sie ein Trauma oder Rumpfschmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 43,
-      "name": "Verbrennung/Verbrühung",
-      "icon": "fas fa-fire",
-      "phrase": "Haben Sie eine Verbrennung oder Verbrühung?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 44,
-      "name": "Wunden/Abszesse/örtliche Infektion",
-      "icon": "fas fa-band-aid",
-      "phrase": "Haben Sie Wunden, Abszesse oder eine örtliche Infektion?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 45,
-      "name": "Gleichgewichtsstörung",
-      "icon": "fas fa-balance-scale",
-      "phrase": "Haben Sie eine Gleichgewichtsstörung bemerkt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 46,
-      "name": "Sehstörung",
-      "icon": "fas fa-eye",
-      "phrase": "Haben Sie eine Sehstörung oder einen Sehverlust bemerkt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 47,
-      "name": "Gesichtslähmung",
-      "icon": "fas fa-smile",
-      "phrase": "Haben Sie eine Lähmung im Gesicht bemerkt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 48,
-      "name": "Armlähmung",
-      "icon": "fas fa-hand-paper",
-      "phrase": "Haben Sie eine Lähmung in einem Arm bemerkt?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 49,
-      "name": "Sprachstörung",
-      "icon": "fas fa-comment",
-      "phrase": "Haben Sie Schwierigkeiten beim Sprechen oder Verstehen von Sprache?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 50,
-      "name": "Zeit",
-      "icon": "fas fa-clock",
-      "phrase": "Seit wann bestehen die Symptome?",
-      "answers": ["Weniger als eine Stunde", "Mehr als eine Stunde"]
-    },
-    {
-      "id": 51,
-      "name": "Brustschmerzen",
-      "icon": "fas fa-heart",
-      "phrase": "Haben Sie starke, stechende oder brennende Schmerzen im Brustkorb?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 52,
-      "name": "Druckgefühl",
-      "icon": "fas fa-weight",
-      "phrase": "Haben Sie ein sehr starkes Druck- oder Engegefühl im Brustkorb?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 53,
-      "name": "Atemnot",
-      "icon": "fas fa-lungs",
-      "phrase": "Haben Sie Atemnot oder Kurzatmigkeit?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 54,
-      "name": "Ausstrahlende Schmerzen",
-      "icon": "fas fa-arrow-alt-circle-right",
-      "phrase": "Strahlen die Schmerzen in Arme, Schultern, Rücken, Oberbauch, Hals, Kiefer oder Nacken aus?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 55,
-      "name": "Kalter Schweiß",
-      "icon": "fas fa-temperature-low",
-      "phrase": "Haben Sie kalten Schweiß oder blasse Haut?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 56,
-      "name": "Übelkeit",
-      "icon": "fas fa-stomach",
-      "phrase": "Haben Sie Übelkeit oder Erbrechen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 57,
-      "name": "Schwindel",
-      "icon": "fas fa-dizzy",
-      "phrase": "Haben Sie Schwindel oder Schwäche?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 58,
-      "name": "Angstgefühl",
-      "icon": "fas fa-exclamation-triangle",
-      "phrase": "Haben Sie ein starkes Angstgefühl oder Todesangst?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 59,
-      "name": "Rauchen",
-      "icon": "fas fa-smoking",
-      "phrase": "Rauchen Sie?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 60,
-      "name": "Alkoholkonsum",
-      "icon": "fas fa-wine-glass",
-      "phrase": "Trinken Sie Alkohol?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 61,
-      "name": "Drogenkonsum",
-      "icon": "fas fa-syringe",
-      "phrase": "Nehmen Sie Drogen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 62,
-      "name": "Körperliche Aktivität",
-      "icon": "fas fa-running",
-      "phrase": "Sind Sie regelmäßig körperlich aktiv?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 63,
-      "name": "Ernährungsgewohnheiten",
-      "icon": "fas fa-utensils",
-      "phrase": "Haben Sie gesunde Ernährungsgewohnheiten?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 64,
-      "name": "Stress",
-      "icon": "fas fa-stress",
-      "phrase": "Erleben Sie häufig Stress?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 65,
-      "name": "Schlafqualität",
-      "icon": "fas fa-bed",
-      "phrase": "Haben Sie eine gute Schlafqualität?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 66,
-      "name": "Depression oder Angst",
-      "icon": "fas fa-sad-tear",
-      "phrase": "Leiden Sie unter Depressionen oder Angstzuständen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 67,
-      "name": "Familienanamnese",
-      "icon": "fas fa-users",
-      "phrase": "Gibt es in Ihrer Familie bekannte gesundheitliche Probleme?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 68,
-      "name": "Medizinische Vorgeschichte",
-      "icon": "fas fa-file-medical",
-      "phrase": "Haben Sie eine bedeutende medizinische Vorgeschichte?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 69,
-      "name": "Allergien",
-      "icon": "fas fa-allergies",
-      "phrase": "Haben Sie Allergien?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 70,
-      "name": "Medikamente",
-      "icon": "fas fa-pills",
-      "phrase": "Nehmen Sie regelmäßig Medikamente ein?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 71,
-      "name": "Schmerzen",
-      "icon": "fas fa-head-side-virus",
-      "phrase": "Haben Sie Schmerzen?",
-      "answers": ["Ja", "Nein"]
-    },
-    {
-      "id": 72,
-      "name": "Lebensverändernde Ereignisse",
-      "icon": "fas fa-exchange-alt",
-      "phrase": "Haben Sie kürzlich lebensverändernde Ereignisse erlebt?",
-      "answers": ["Ja", "Nein"]
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Schmerzen",
+    "icon": "fas fa-head-side-cough",
+    "phrase": "Haben Sie Schmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 2,
+    "name": "Allergien",
+    "icon": "fas fa-allergies",
+    "phrase": "Haben Sie Allergien?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 3,
+    "name": "Medikamente",
+    "icon": "fas fa-pills",
+    "phrase": "Nehmen Sie Medikamente ein?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 4,
+    "name": "Allergische Reaktion",
+    "icon": "fas fa-exclamation-triangle",
+    "phrase": "Haben Sie allergisch auf etwas reagiert?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 5,
+    "name": "Allgemeinzustand Verschlechterung",
+    "icon": "fas fa-tired",
+    "phrase": "Hat sich Ihr Allgemeinzustand verschlechtert?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 6,
+    "name": "Bewusstlosigkeit unklar",
+    "icon": "fas fa-user-injured",
+    "phrase": "Sind Sie unklar bewusstlos geworden?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 7,
+    "name": "Atemnot",
+    "icon": "fas fa-lungs",
+    "phrase": "Haben Sie Atemnot?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 8,
+    "name": "Fieber unklar",
+    "icon": "fas fa-thermometer-half",
+    "phrase": "Haben Sie Fieber?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 9,
+    "name": "Bluterbrechen",
+    "icon": "fas fa-vial",
+    "phrase": "Haben Sie Blut erbrochen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 10,
+    "name": "Bluthusten",
+    "icon": "fas fa-lungs-virus",
+    "phrase": "Haben Sie Blut gehustet?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 11,
+    "name": "Herzklopfen",
+    "icon": "fas fa-heartbeat",
+    "phrase": "Haben Sie Herzklopfen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 12,
+    "name": "Nackenschmerzen",
+    "icon": "fas fa-head-side-cough",
+    "phrase": "Haben Sie Nackenschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 13,
+    "name": "Vergiftung",
+    "icon": "fas fa-skull-crossbones",
+    "phrase": "Haben Sie bewusst oder unbewusst etwas Schädliches zu sich genommen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 14,
+    "name": "Zusammenbruch/Ohnmacht",
+    "icon": "fas fa-user-fall",
+    "phrase": "Sind Sie zusammengebrochen oder ohnmächtig geworden?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 15,
+    "name": "Kopfschmerzen",
+    "icon": "fas fa-head-side-cough",
+    "phrase": "Haben Sie Kopfschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 16,
+    "name": "Anfall",
+    "icon": "fas fa-brain",
+    "phrase": "Hatten Sie einen Anfall?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 17,
+    "name": "Neurologisches Defizit",
+    "icon": "fas fa-brain",
+    "phrase": "Haben Sie ein neurologisches Defizit bemerkt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 18,
+    "name": "Bauchschmerzen",
+    "icon": "fas fa-stomach",
+    "phrase": "Haben Sie Bauchschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 19,
+    "name": "Angiologisches Problem",
+    "icon": "fas fa-heart",
+    "phrase": "Haben Sie ein angiologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 20,
+    "name": "Dermatologisches Problem",
+    "icon": "fas fa-skin",
+    "phrase": "Haben Sie ein dermatologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 21,
+    "name": "Gynäkologisches Problem",
+    "icon": "fas fa-female",
+    "phrase": "Haben Sie ein gynäkologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 22,
+    "name": "HNO-Problem",
+    "icon": "fas fa-ear",
+    "phrase": "Haben Sie ein HNO-Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 23,
+    "name": "Hämatologisches Problem",
+    "icon": "fas fa-blood",
+    "phrase": "Haben Sie ein hämatologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 24,
+    "name": "Nephrologisches Problem",
+    "icon": "fas fa-kidney",
+    "phrase": "Haben Sie ein nephrologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 25,
+    "name": "Rheumatologisches Problem",
+    "icon": "fas fa-bone",
+    "phrase": "Haben Sie ein rheumatologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 26,
+    "name": "Urologisches Problem",
+    "icon": "fas fa-bladder",
+    "phrase": "Haben Sie ein urologisches Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 27,
+    "name": "Psychische Erkrankung",
+    "icon": "fas fa-brain",
+    "phrase": "Haben Sie eine psychische Erkrankung?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 28,
+    "name": "Rektales Problem",
+    "icon": "fas fa-toilet",
+    "phrase": "Haben Sie ein rektales Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 29,
+    "name": "Rückenschmerzen",
+    "icon": "fas fa-back",
+    "phrase": "Haben Sie Rückenschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 30,
+    "name": "Schockraum nicht-trauma",
+    "icon": "fas fa-hospital",
+    "phrase": "Sind Sie im Schockraum (nicht-trauma)?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 31,
+    "name": "Schwindel",
+    "icon": "fas fa-dizzy",
+    "phrase": "Haben Sie Schwindel?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 32,
+    "name": "Andere",
+    "icon": "fas fa-question",
+    "phrase": "Haben Sie ein anderes Problem?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 33,
+    "name": "Teerstuhl",
+    "icon": "fas fa-toilet-paper",
+    "phrase": "Haben Sie Teerstuhl?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 34,
+    "name": "Brustschmerzen",
+    "icon": "fas fa-heart",
+    "phrase": "Haben Sie Brustschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 35,
+    "name": "Thrombose/Embolie",
+    "icon": "fas fa-blood-clot",
+    "phrase": "Haben Sie eine Thrombose oder Embolie?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 36,
+    "name": "Übelkeit/Erbrechen/Durchfall",
+    "icon": "fas fa-stomach",
+    "phrase": "Haben Sie Übelkeit, Erbrechen oder Durchfall?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 37,
+    "name": "Kopfverletzung",
+    "icon": "fas fa-head-side-bandage",
+    "phrase": "Haben Sie eine Kopfverletzung?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 38,
+    "name": "Polytrauma",
+    "icon": "fas fa-user-injured",
+    "phrase": "Haben Sie ein Polytrauma?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 39,
+    "name": "Stromschlag",
+    "icon": "fas fa-bolt",
+    "phrase": "Haben Sie einen Stromschlag erlitten?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 40,
+    "name": "Sturz",
+    "icon": "fas fa-fall",
+    "phrase": "Sind Sie gestürzt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 41,
+    "name": "Trauma/Gliederschmerzen",
+    "icon": "fas fa-hand-holding-medical",
+    "phrase": "Haben Sie ein Trauma oder Gliederschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 42,
+    "name": "Trauma/Rumpfschmerzen",
+    "icon": "fas fa-body",
+    "phrase": "Haben Sie ein Trauma oder Rumpfschmerzen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 43,
+    "name": "Verbrennung/Verbrühung",
+    "icon": "fas fa-fire",
+    "phrase": "Haben Sie eine Verbrennung oder Verbrühung?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 44,
+    "name": "Wunden/Abszesse/örtliche Infektion",
+    "icon": "fas fa-band-aid",
+    "phrase": "Haben Sie Wunden, Abszesse oder eine örtliche Infektion?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 45,
+    "name": "Gleichgewichtsstörung",
+    "icon": "fas fa-balance-scale",
+    "phrase": "Haben Sie eine Gleichgewichtsstörung bemerkt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 46,
+    "name": "Sehstörung",
+    "icon": "fas fa-eye",
+    "phrase": "Haben Sie eine Sehstörung oder einen Sehverlust bemerkt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 47,
+    "name": "Gesichtslähmung",
+    "icon": "fas fa-smile",
+    "phrase": "Haben Sie eine Lähmung im Gesicht bemerkt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 48,
+    "name": "Armlähmung",
+    "icon": "fas fa-hand-paper",
+    "phrase": "Haben Sie eine Lähmung in einem Arm bemerkt?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 49,
+    "name": "Sprachstörung",
+    "icon": "fas fa-comment",
+    "phrase": "Haben Sie Schwierigkeiten beim Sprechen oder Verstehen von Sprache?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 50,
+    "name": "Zeit",
+    "icon": "fas fa-clock",
+    "phrase": "Seit wann bestehen die Symptome?",
+    "answers": ["Weniger als eine Stunde", "Mehr als eine Stunde"]
+  },
+  {
+    "id": 51,
+    "name": "Brustschmerzen",
+    "icon": "fas fa-heart",
+    "phrase": "Haben Sie starke, stechende oder brennende Schmerzen im Brustkorb?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 52,
+    "name": "Druckgefühl",
+    "icon": "fas fa-weight",
+    "phrase": "Haben Sie ein sehr starkes Druck- oder Engegefühl im Brustkorb?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 53,
+    "name": "Atemnot",
+    "icon": "fas fa-lungs",
+    "phrase": "Haben Sie Atemnot oder Kurzatmigkeit?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 54,
+    "name": "Ausstrahlende Schmerzen",
+    "icon": "fas fa-arrow-alt-circle-right",
+    "phrase": "Strahlen die Schmerzen in Arme, Schultern, Rücken, Oberbauch, Hals, Kiefer oder Nacken aus?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 55,
+    "name": "Kalter Schweiß",
+    "icon": "fas fa-temperature-low",
+    "phrase": "Haben Sie kalten Schweiß oder blasse Haut?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 56,
+    "name": "Übelkeit",
+    "icon": "fas fa-stomach",
+    "phrase": "Haben Sie Übelkeit oder Erbrechen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 57,
+    "name": "Schwindel",
+    "icon": "fas fa-dizzy",
+    "phrase": "Haben Sie Schwindel oder Schwäche?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 58,
+    "name": "Angstgefühl",
+    "icon": "fas fa-exclamation-triangle",
+    "phrase": "Haben Sie ein starkes Angstgefühl oder Todesangst?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 59,
+    "name": "Rauchen",
+    "icon": "fas fa-smoking",
+    "phrase": "Rauchen Sie?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 60,
+    "name": "Alkoholkonsum",
+    "icon": "fas fa-wine-glass",
+    "phrase": "Trinken Sie Alkohol?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 61,
+    "name": "Drogenkonsum",
+    "icon": "fas fa-syringe",
+    "phrase": "Nehmen Sie Drogen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 62,
+    "name": "Körperliche Aktivität",
+    "icon": "fas fa-running",
+    "phrase": "Sind Sie regelmäßig körperlich aktiv?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 63,
+    "name": "Ernährungsgewohnheiten",
+    "icon": "fas fa-utensils",
+    "phrase": "Haben Sie gesunde Ernährungsgewohnheiten?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 64,
+    "name": "Stress",
+    "icon": "fas fa-stress",
+    "phrase": "Erleben Sie häufig Stress?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 65,
+    "name": "Schlafqualität",
+    "icon": "fas fa-bed",
+    "phrase": "Haben Sie eine gute Schlafqualität?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 66,
+    "name": "Depression oder Angst",
+    "icon": "fas fa-sad-tear",
+    "phrase": "Leiden Sie unter Depressionen oder Angstzuständen?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 67,
+    "name": "Familienanamnese",
+    "icon": "fas fa-users",
+    "phrase": "Gibt es in Ihrer Familie bekannte gesundheitliche Probleme?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 68,
+    "name": "Medizinische Vorgeschichte",
+    "icon": "fas fa-file-medical",
+    "phrase": "Haben Sie eine bedeutende medizinische Vorgeschichte?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 69,
+    "name": "Allergien",
+    "icon": "fas fa-allergies",
+    "phrase": "Haben Sie Allergien?",
+    "answers": ["Ja", "Nein"]
+  },
+  {
+    "id": 70,
+    "name": "Medikamente",
+    "icon": "fas fa-pills",
+    "phrase": "Nehmen Sie regelmäßig Medikamente ein?",
+    "answers": ["Ja", "Nein"]
+  }
+]

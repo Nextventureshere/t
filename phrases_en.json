@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Pain",
-    "icon": "fas fa-head-side-virus",
+    "icon": "fas fa-head-side-cough",
     "phrase": "Do you have pain?",
     "answers": ["Yes", "No"]
   },
@@ -79,7 +79,7 @@
   {
     "id": 12,
     "name": "Neck Pain",
-    "icon": "fas fa-neck",
+    "icon": "fas fa-head-side-cough",
     "phrase": "Do you have neck pain?",
     "answers": ["Yes", "No"]
   },
